@@ -1,0 +1,175 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Haven - Online Bookstore</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">📚 Book Haven</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#">About Us</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="cart">🛒 <span id="cart-count">0</span></div>
+  </header>
+
+  <main>
+    <h1>Featured Books</h1>
+    <section class="products">
+      
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/51UoqRAxwEL.jpg" alt="Harry Potter" />
+        <h3>Harry Potter & the Sorcerer's Stone</h3>
+        <p class="price">250.00</p>
+        <p class="desc">Join Harry on his magical journey at Hogwarts.</p>
+        <button onclick="addToCart()">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/91bYsX41DVL._AC_UF1000,1000_QL80_.jpg" alt="Atomic Habits" />
+        <h3>Atomic Habits</h3>
+        <p class="price">500.00</p>
+        <p class="desc">Transform your habits and life with small changes.</p>
+        <button onclick="addToCart()">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/71UwSHSZRnS.jpg" alt="The Alchemist" />
+        <h3>The Alchemist</h3>
+        <p class="price">$600.00</p>
+        <p class="desc">A journey of self-discovery and dreams.</p>
+        <button onclick="addToCart()">Add to Cart</button>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Book Haven. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html><style>* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #292b2c;
+  color: white;
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav a {
+  color: white;
+  margin: 0 0.8rem;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cart {
+  font-size: 1.2rem;
+}
+
+main {
+  padding: 2rem;
+  text-align: center;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.product-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.price {
+  color: #008000;
+  font-weight: bold;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #292b2c;
+  color: white;
+  margin-top: 3rem;
+}</style><script>let cartCount = 0;
+
+function addToCart() {
+  cartCount++;
+  document.getElementById("cart-count").innerText = cartCount;
+  
+  const cart = document.querySelector(".cart");
+  const msg = document.createElement("span");
+  msg.innerText = " ✓ Added";
+  msg.style.marginLeft = "5px";
+  msg.style.color = "limegreen";
+
+  cart.appendChild(msg);
+
+  setTimeout(() => {
+    cart.removeChild(msg);
+  }, 1500);
+}</script>
